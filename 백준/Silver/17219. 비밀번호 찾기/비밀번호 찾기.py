@@ -1,10 +1,14 @@
 import sys
-n, m = map(int, sys.stdin.readline().split())
-d = {}
+input = sys.stdin.readline
 
+n, m = map(int, input().split())
+
+dict = {}
 for _ in range(n):
-    url, ps = sys.stdin.readline().split()
-    d[url] = ps
+    url, passworld = input().split()
+    dict[url] = passworld
 
-for _ in range(m):
-    print(d[sys.stdin.readline().rstrip()])
+for i in range(m):
+    url = input().strip()
+    if url in dict:
+        print(dict[url])
