@@ -1,18 +1,14 @@
 import sys
 input = sys.stdin.readline
 
+dp = [1, 2, 4]
 t = int(input())
-dp = [0] * 11
-
 for i in range(t):
     n = int(input())
-    dp[1] = 1
-    dp[2] = 2
-    dp[3] = 4
-
-    if n <= 3:
-        print(dp[n])
+    if n <= len(dp):
+        print(dp[n-1])
     else:
-        for j in range(4, n+1):
-            dp[j] = dp[j-1] + dp[j-2] + dp[j-3]
-        print(dp[n])
+        for j in range(len(dp), n):
+            dp.append(dp[j-1]+dp[j-2]+dp[j-3])
+
+        print(dp[-1])
